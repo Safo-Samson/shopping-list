@@ -13,7 +13,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #333;
-  background-color: #f5f5f5;
+  background-color: white;
 }
 
 header {
@@ -35,7 +35,7 @@ header h1 {
 }
 
 .edit-mode {
-  color: #ccc;
+  color: orange;
 }
 
 /* Form & Input */
@@ -97,7 +97,7 @@ header h1 {
 }
 
 .btn-clear:hover {
-  background-color: #f1f1f1;
+  border: 2px solid #ad0505;
 }
 
 .text-red {
@@ -128,4 +128,10 @@ header h1 {
   .items li {
     width: 100%;
   }
+}
+
+/*dark/light mode*/
+#mode-toggle{
+  color: purple;
+  background-color: yellow; 
 }

@@ -146,14 +146,17 @@ function removeItemFromStorage(item) {
 }
 
 function clearItems() {
-  while (itemList.firstChild) {
-    itemList.removeChild(itemList.firstChild);
+  if(confirm('This will clear all items!')){
+    while (itemList.firstChild) {
+      itemList.removeChild(itemList.firstChild);
+    }
+  
+    // Clear from localStorage
+    localStorage.removeItem('items');
+  
+    checkUI();
   }
 
-  // Clear from localStorage
-  localStorage.removeItem('items');
-
-  checkUI();
 }
 
 function filterItems(e) {
@@ -186,9 +189,61 @@ function checkUI() {
 
   formBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Add Item';
   formBtn.style.backgroundColor = '#333';
+  keepBrightnessAsItIs();
 
   isEditMode = false;
 }
+
+//brightness mode functionality
+function keepBrightnessAsItIs(){
+  if(document.body.style.backgroundColor == 'black'){
+    darkMode();
+  }
+  else{
+    lightMode();
+  }
+}
+
+function lightMode(){
+  const allItems = (document.querySelectorAll('.items li'));
+  document.body.style.backgroundColor = 'white';
+  document.querySelector('h1').style.color = 'black';
+  document.querySelector('.btn').style.backgroundColor = 'black';
+  document.querySelector('.btn').style.color = 'white';
+
+
+  //changing the color of the texts in the item
+  allItems.forEach((item)=> item.style.color = 'black')
+  document.getElementById('clear').style.color = 'black'
+}
+
+
+function darkMode(){
+  const allItems = (document.querySelectorAll('.items li'));
+  document.body.style.backgroundColor = ' black';
+  document.querySelector('h1').style.color = 'white';
+  document.querySelector('.btn').style.backgroundColor = 'white';
+  document.querySelector('.btn').style.color = 'black';
+
+    //changing the color of the texts in the item
+  allItems.forEach((item)=> item.style.color = 'white')
+  document.getElementById('clear').style.color = 'white'
+}
+
+function brightnessModeButton(){ 
+  if(document.body.style.backgroundColor !== 'white'){
+    lightMode();
+  }
+  else {
+      darkMode();
+  }
+}
+
+
+// change brightness mode
+let modeToggle = document.getElementById('mode-toggle'); 
+modeToggle.addEventListener('click', brightnessModeButton)
+
 
 // Initialize app
 function init() {
