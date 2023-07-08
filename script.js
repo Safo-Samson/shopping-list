@@ -3,8 +3,10 @@ const itemInput = document.getElementById('item-input');
 const itemList = document.getElementById('item-list');
 const clearBtn = document.getElementById('clear');
 const itemFilter = document.getElementById('filter');
-const formBtn = itemForm.querySelector('button');
+const formBtn = itemForm.querySelector('.button');
+const cancelBtn= document.querySelector('.cancelBtn');
 let isEditMode = false;
+let isCancelBtnClicked = false;
 
 function displayItems() {
   const itemsFromStorage = getItemsFromStorage();
@@ -12,13 +14,19 @@ function displayItems() {
   checkUI();
 }
 
+
+
 function onAddItemSubmit(e) {
   e.preventDefault();
 
+  if (isCancelBtnClicked) {
+    console.log('cancel button clicked');
+    return
+  }
   const newItem = itemInput.value;
 
   // Validate Input
-  if (newItem === '') {
+  if (newItem.trim() === '') {
     alert('Please add an item');
     return;
   }
@@ -27,10 +35,13 @@ function onAddItemSubmit(e) {
   if (isEditMode) {
     const itemToEdit = itemList.querySelector('.edit-mode');
 
-    removeItemFromStorage(itemToEdit.textContent);
-    itemToEdit.classList.remove('edit-mode');
-    itemToEdit.remove();
-    isEditMode = false;
+   
+      removeItemFromStorage(itemToEdit.textContent);
+      itemToEdit.classList.remove('edit-mode');
+      itemToEdit.remove();
+      isEditMode = false;
+      isCancelBtnClicked = false;
+  
   } else {
     if (checkIfItemExists(newItem)) {
       alert('That item already exists!');
@@ -48,6 +59,9 @@ function onAddItemSubmit(e) {
 
   itemInput.value = '';
 }
+
+
+
 
 function addItemToDOM(item) {
   // Create list item
@@ -110,17 +124,36 @@ function checkIfItemExists(item) {
   return itemsFromStorage.includes(item);
 }
 
+
+//item to edit
 function setItemToEdit(item) {
+
+  // just making sure you dont select the ul itself
+  if(item.tagName === 'UL'){
+    return;
+  }
+
   isEditMode = true;
+
 
   itemList
     .querySelectorAll('li')
     .forEach((i) => i.classList.remove('edit-mode'));
 
   item.classList.add('edit-mode');
-  formBtn.innerHTML = '<i class="fa-solid fa-pen"></i>   Update Item';
+  itemFormOnFocus();
+  formBtn.innerHTML = '<i class="fa-solid fa-pen"></i>   Edit Item'; 
+
+ //show cancel button
+  cancelBtn.style.display = 'block';  
+
   formBtn.style.backgroundColor = '#228B22';
   itemInput.value = item.textContent;
+
+  // Set focus to input by sending the cursor to the end of the text
+  itemInput.focus();
+  itemInput.setSelectionRange(itemInput.value.length, itemInput.value.length);
+  isCancelBtnClicked = false;
 }
 
 function removeItem(item) {
@@ -134,6 +167,11 @@ function removeItem(item) {
     checkUI();
   }
 }
+
+
+
+
+
 
 function removeItemFromStorage(item) {
   let itemsFromStorage = getItemsFromStorage();
@@ -174,6 +212,8 @@ function filterItems(e) {
   });
 }
 
+
+//check UI function
 function checkUI() {
   itemInput.value = '';
 
@@ -189,11 +229,18 @@ function checkUI() {
 
   formBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Add Item';
   formBtn.style.backgroundColor = '#333';
+  cancelBtn.style.display = 'none';
   keepBrightnessAsItIs();
+
 
   isEditMode = false;
 }
 
+
+
+/********************************************************
+ * My own functionality
+ *******************************************************/
 //brightness mode functionality
 function keepBrightnessAsItIs(){
   if(document.body.style.backgroundColor == 'black'){
@@ -244,14 +291,68 @@ function brightnessModeButton(){
 let modeToggle = document.getElementById('mode-toggle'); 
 modeToggle.addEventListener('click', brightnessModeButton)
 
+// changing form outline color when in focus
+
+const itemFormOnFocus = ()=>{
+  itemInput.style.outlineColor = "#045a94";
+  itemInput.style.outlineWidth = "2px";
+  itemInput.style.outlineStyle = "solid";
+}
+
+const itemFormOnBlur = ()=> { 
+  itemInput.style.outline = "none";
+}
+
+itemInput.addEventListener('focus', itemFormOnFocus);
+itemInput.addEventListener('blur', itemFormOnBlur);
+
+
+
+//add event listener to cancel button
+const cancelBtnClicked = () => {
+  // formBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Add Item';
+  // cancelBtn.style.display = 'none';
+  // isEditMode = false;
+  isCancelBtnClicked = true;
+  itemInput.value = '';
+  
+  itemList
+    .querySelectorAll('li')
+    .forEach((i) => i.classList.remove('edit-mode'));
+
+  formBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Add Item';
+  cancelBtn.style.display = 'none'
+  formBtn.style.backgroundColor = '#333';
+  keepBrightnessAsItIs();
+  isEditMode = false;
+}
+
+cancelBtn.addEventListener('submit',cancelBtnClicked);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Initialize app
 function init() {
   // Event Listeners
   itemForm.addEventListener('submit', onAddItemSubmit);
+  itemForm.addEventListener('focus', itemFormOnFocus);
   itemList.addEventListener('click', onClickItem);
+  itemInput.addEventListener('blur', itemFormOnBlur);
   clearBtn.addEventListener('click', clearItems);
   itemFilter.addEventListener('input', filterItems);
+  //added event listener to cancel button
+  cancelBtn.addEventListener('click',cancelBtnClicked);
   document.addEventListener('DOMContentLoaded', displayItems);
 
   checkUI();

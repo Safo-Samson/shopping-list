@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicons -->
+  <link href="images/Listing.png" rel="icon"><!--Changes made to add favicon-->
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
@@ -11,35 +15,44 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <!--my own font awesome link-->
+    <!-- <script src="https://kit.fontawesome.com/d11fac47f6.js" crossorigin="anonymous"></script> -->
+
+
     <link rel="stylesheet" href="style.css" />
     <title>Listing</title>
+
   </head>
+
+  <!--Body Starting-->
   <body>
     <div class="container">
 
       <header>
-        <img src="images/note.png" alt="" />
-        <h1>Shopping/Item List</h1>
+        <img class="inbody-logo"src="images/Listing.png" alt="logo" />
+        <h1>Item List</h1>
       </header>
-    
-        <button id="mode-toggle">light</button>
-     
+        
       <form id="item-form">
-        <div class="form-control">
-          <input
-            type="text"
-            class="form-input"
-            id="item-input"
-            name="item"
-            placeholder="Enter Item"
-          />
-        </div>
+        <!-- <div class="form-control"> -->
+          <input  type="text" class="form-input" id="item-input" name="item" placeholder="Enter Item"/>
+        <!-- </div> -->
 
-        <div class="form-control">
-          <button type="submit" class="btn">
-            <i class="fa-solid fa-plus"></i> Add Item
-          </button>
+        <div class="button-container">
+          <!-- <div class="form-control"> -->
+            <button type="submit" class="btn">
+              <i class="fa-solid fa-plus"></i> Add Item
+            </button>
+          <!-- </div> -->
+
+          <!-- <div class="form-control"> -->
+            <button type="submit" class="cancelBtn">
+              <i class="fas fa-ban fa-lg"></i> cancel 
+            </button>
+          <!-- </div> -->
         </div>
+        
       </form>
 
       <div class="filter">
@@ -58,28 +71,17 @@
             <i class="fa-solid fa-xmark"></i>
           </button>
         </li>
-        <li>
-          Orange Juice
-          <button class="remove-item btn-link text-red">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </li>
-        <li>
-          Oreos
-          <button class="remove-item btn-link text-red">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </li>
-        <li>
-          Milk
-          <button class="remove-item btn-link text-red">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </li> -->
+      -->
+        
       </ul>
 
       <button id="clear" class="btn-clear">Clear All Items</button>
+      
     </div>
+    
+        <!--brightness mode icone-->
+    <p class="toggle-container" style="color: rgb(7, 90, 216);;">change brightness here</p>
+    <i class="fas fa-moon toggle-container" id="mode-toggle"></i>
 
     <script src="script.js"></script>
   </body>
