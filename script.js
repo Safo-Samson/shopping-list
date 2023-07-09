@@ -3,7 +3,7 @@ const itemInput = document.getElementById('item-input');
 const itemList = document.getElementById('item-list');
 const clearBtn = document.getElementById('clear');
 const itemFilter = document.getElementById('filter');
-const formBtn = itemForm.querySelector('.button');
+const formBtn = itemForm.querySelector('button');
 const cancelBtn= document.querySelector('.cancelBtn');
 let isEditMode = false;
 let isCancelBtnClicked = false;
@@ -310,9 +310,6 @@ itemInput.addEventListener('blur', itemFormOnBlur);
 
 //add event listener to cancel button
 const cancelBtnClicked = () => {
-  // formBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Add Item';
-  // cancelBtn.style.display = 'none';
-  // isEditMode = false;
   isCancelBtnClicked = true;
   itemInput.value = '';
   
