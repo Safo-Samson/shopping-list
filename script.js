@@ -139,7 +139,7 @@ function setItemToEdit(item) {
 
   item.classList.add('edit-mode');
   itemFormOnFocus();
-  formBtn.innerHTML = '<i class="fa-solid fa-pen"></i>   Edit Item'; 
+  formBtn.innerHTML = '<i class="fa-solid fa-pen"></i>   Update Item'; 
 
  //show cancel button
   cancelBtn.style.display = 'block';  
