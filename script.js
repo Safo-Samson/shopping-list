@@ -5,8 +5,6 @@ const clearBtn = document.getElementById('clear');
 const itemFilter = document.getElementById('filter');
 const formBtn = itemForm.querySelector('.btn');
 const cancelBtn= document.querySelector('.cancelBtn');
-const hideBtn = document.querySelector('.help');
-const guide = document.querySelector('.guide');
 let isEditMode = false;
 // let isCancelBtnClicked = false;
 
@@ -256,9 +254,6 @@ function lightMode(){
   //changing the color of the texts in the item
   allItems.forEach((item)=> item.style.color = 'black')
   document.getElementById('clear').style.color = 'black'
-
-  guideItem = document.querySelectorAll('.guide li');
-  guideItem.forEach((item) => item.style.color = 'black');
 }
 
 
@@ -272,10 +267,8 @@ function darkMode(){
     //changing the color of the texts in the item
   allItems.forEach((item)=> item.style.color = 'white')
   document.getElementById('clear').style.color = 'white'
-
-  guideItem = document.querySelectorAll('.guide li');
-  guideItem.forEach((item) => item.style.color = 'white');
 }
+
 function brightnessModeButton(){ 
   if(document.body.style.backgroundColor !== 'white'){
     lightMode();
@@ -309,7 +302,7 @@ itemInput.addEventListener('blur', itemFormOnBlur);
 //add event listener to cancel button
 const cancelBtnClicked = (e) => {
  e.preventDefault();
-  // isCancelBtnClicked = true;
+  isCancelBtnClicked = true;
   itemInput.value = '';
   
   itemList
@@ -324,15 +317,6 @@ const cancelBtnClicked = (e) => {
 }
 
 cancelBtn.addEventListener('submit',cancelBtnClicked);
-
-// hide the guide section
-hideBtn.addEventListener('click', ()=>{
-  if(guide.style.display === 'none'){
-    guide.style.display = 'block';
-  }else{
-    guide.style.display = 'none';
-  }
-})
 
 
 
