@@ -3,10 +3,10 @@ const itemInput = document.getElementById('item-input');
 const itemList = document.getElementById('item-list');
 const clearBtn = document.getElementById('clear');
 const itemFilter = document.getElementById('filter');
-const formBtn = itemForm.querySelector('.button');
+const formBtn = itemForm.querySelector('.btn');
 const cancelBtn= document.querySelector('.cancelBtn');
 let isEditMode = false;
-let isCancelBtnClicked = false;
+// let isCancelBtnClicked = false;
 
 function displayItems() {
   const itemsFromStorage = getItemsFromStorage();
@@ -19,10 +19,6 @@ function displayItems() {
 function onAddItemSubmit(e) {
   e.preventDefault();
 
-  if (isCancelBtnClicked) {
-    console.log('cancel button clicked');
-    return
-  }
   const newItem = itemInput.value;
 
   // Validate Input
@@ -40,7 +36,6 @@ function onAddItemSubmit(e) {
       itemToEdit.classList.remove('edit-mode');
       itemToEdit.remove();
       isEditMode = false;
-      isCancelBtnClicked = false;
   
   } else {
     if (checkIfItemExists(newItem)) {
@@ -153,8 +148,9 @@ function setItemToEdit(item) {
   // Set focus to input by sending the cursor to the end of the text
   itemInput.focus();
   itemInput.setSelectionRange(itemInput.value.length, itemInput.value.length);
-  isCancelBtnClicked = false;
+  // isCancelBtnClicked = false;
 }
+
 
 function removeItem(item) {
   if (confirm('Are you sure?')) {
@@ -167,10 +163,6 @@ function removeItem(item) {
     checkUI();
   }
 }
-
-
-
-
 
 
 function removeItemFromStorage(item) {
@@ -292,7 +284,6 @@ let modeToggle = document.getElementById('mode-toggle');
 modeToggle.addEventListener('click', brightnessModeButton)
 
 // changing form outline color when in focus
-
 const itemFormOnFocus = ()=>{
   itemInput.style.outlineColor = "#045a94";
   itemInput.style.outlineWidth = "2px";
@@ -309,11 +300,8 @@ itemInput.addEventListener('blur', itemFormOnBlur);
 
 
 //add event listener to cancel button
-const cancelBtnClicked = () => {
-  // formBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Add Item';
-  // cancelBtn.style.display = 'none';
-  // isEditMode = false;
-  isCancelBtnClicked = true;
+const cancelBtnClicked = (e) => {
+  e.preventDefault();
   itemInput.value = '';
   
   itemList
