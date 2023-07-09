@@ -300,8 +300,11 @@ itemInput.addEventListener('blur', itemFormOnBlur);
 
 
 //add event listener to cancel button
-const cancelBtnClicked = (e) => {
-  e.preventDefault();
+const cancelBtnClicked = () => {
+  // formBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Add Item';
+  // cancelBtn.style.display = 'none';
+  // isEditMode = false;
+  isCancelBtnClicked = true;
   itemInput.value = '';
   
   itemList
