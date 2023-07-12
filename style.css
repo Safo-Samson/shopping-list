@@ -1,66 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
 
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
-  background-color: white;
+	font-family: "Poppins", sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #333;
+	background-color: white;
 }
 
 header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 15px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 15px;
 }
 
-
-
 header h1 {
-  font-weight: 300;
-  margin-left: 10px;
+	font-weight: 300;
+	margin-left: 10px;
 }
 
 .container {
-  max-width: 500px;
-  margin: 30px auto;
-  padding: 20px;
+	max-width: 500px;
+	margin: 30px auto;
+	padding: 20px;
 }
 
 .edit-mode {
-  background-color: rgba(8, 114, 146, 0.651); 
+	background-color: rgba(8, 114, 146, 0.651);
 }
 
 /* Form & Input */
 .form-input {
-  width: 100%;
-  font-size: 18px;
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
+	width: 100%;
+	font-size: 18px;
+	margin-bottom: 20px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	outline: none;
 }
 
 .form-input-filter {
-  margin-top: 20px;
-  width: 100%;
-  font-size: 18px;
-  margin-bottom: 20px;
-  padding: 10px;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  background: transparent;
-  outline: none;
+	margin-top: 20px;
+	width: 100%;
+	font-size: 18px;
+	margin-bottom: 20px;
+	padding: 10px;
+	border: none;
+	border-bottom: 1px solid rgba(8, 114, 146, 0.651);
+	background: transparent;
+	outline: none;
 }
 
 /* Buttons */
@@ -71,144 +69,139 @@ The CSS property display: flex is applied to the .button-container class, which 
 The .btn and .cancelBtn classes both have flex: 1 applied, which ensures that the buttons will share the available horizontal space equally.
 */
 .button-container {
-  display: flex;
+	display: flex;
 }
 
-.btn, .cancelBtn {
-  flex: 1;
+.btn,
+.cancelBtn {
+	flex: 1;
 }
 
 .btn {
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin:  5px;
-  max-width: 50%;
+	background-color: #333;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+	margin: 5px;
+	max-width: 50%;
 }
 
-.cancelBtn{
-  background-color: red;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin:  5px;
-  display: hidden;
-
+.cancelBtn {
+	background-color: red;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+	margin: 5px;
+	display: hidden;
 }
 .btn:hover {
-  background-color: #444;
+	background-color: #444;
 }
 
 .btn-link {
-  font-size: 16px;
-  background-color: transparent;
-  color: #333;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+	font-size: 16px;
+	background-color: transparent;
+	color: #333;
+	border: none;
+	padding: 0;
+	cursor: pointer;
 }
 
 .btn-clear {
-  margin-top: 20px;
-  width: 100%;
-  font-size: 16px;
-  background-color: transparent;
-  color: #333;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
+	margin-top: 20px;
+	width: 100%;
+	font-size: 16px;
+	background-color: transparent;
+	color: #333;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
 }
 
 .btn-clear:hover {
-  border: 2px solid #ad0505;
+	border: 2px solid #ad0505;
 }
 
 .text-red {
-  color: red;
+	color: red;
 }
 
 /* Items */
 
 .items {
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .items li {
-  display: flex;
-  justify-content: space-between;
-  width: 45%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px 15px;
-  margin: 0 5px 20px;
-  font-weight: 700;
-  cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	width: 45%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px 15px;
+	margin: 0 5px 20px;
+	font-weight: 700;
+	cursor: pointer;
 }
 
 @media (max-width: 500px) {
-  .items li {
-    width: 100%;
-  }
+	.items li {
+		width: 100%;
+	}
 }
-
-
-
-
 
 /*dark/light mode*/
-#mode-toggle{
-  color: rgb(7, 90, 216);
-  color : #045a94;
-  font-size: 20px;
-  margin-top: 5px;
+#mode-toggle {
+	color: rgb(7, 90, 216);
+	color: #045a94;
+	font-size: 20px;
+	margin-top: 5px;
 }
 
-#mode-toggle:hover{
-  transform: scale(1.5);
+#mode-toggle:hover {
+	transform: scale(1.5);
 }
-.darkness-icon{
-  font-size: 70px;
+.darkness-icon {
+	font-size: 70px;
 }
 
 .toggle-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
 }
 
-
-img{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin: 10px;
+img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	margin: 10px;
 }
 
-.help{
-  margin-left: 161px;
-  font-size: 40px; 
+.help {
+	margin-left: 161px;
+	font-size: 40px;
+	color: rgba(9, 164, 211, 0.947);
 }
 
-.help:hover{
-  transform: scale(1.5);
-  
+.help:hover {
+	transform: scale(1.5);
 }
 
-.guide{
- display: none;
-  margin-bottom: 10px;
+.guide {
+	display: none;
+	margin-bottom: 10px;
 }
 
-.guide li{
-  margin: 10px;
+.guide li {
+	margin: 10px;
 }

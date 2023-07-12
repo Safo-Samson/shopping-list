@@ -1,107 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicons -->
-  <link href="images/Listing.png" rel="icon"><!--Changes made to add favicon-->
+		<!-- Favicons -->
+		<link href="images/Listing.png" rel="icon" />
+		<!--Changes made to add favicon-->
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+			integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
 
-    <!--my own font awesome link-->
-    <!-- <script src="https://kit.fontawesome.com/d11fac47f6.js" crossorigin="anonymous"></script> -->
+		<!--my own font awesome link-->
+		<!-- <script src="https://kit.fontawesome.com/d11fac47f6.js" crossorigin="anonymous"></script> -->
 
+		<link rel="stylesheet" href="style.css" />
+		<title>Listing</title>
+	</head>
 
-    <link rel="stylesheet" href="style.css" />
-    <title>Listing</title>
+	<!--Body Starting-->
+	<body>
+		<div class="container">
+			<header>
+				<img class="inbody-logo" src="images/Listing.png" alt="logo" />
+				<h1>Item List</h1>
 
-  </head>
+				<!--Just to add title to icon-->
+				<span title="how it works">
+					<i class="fa-solid fa-circle-question help"></i>
+				</span>
+			</header>
 
-  <!--Body Starting-->
-  <body>
-    <div class="container">
+			<ul class="guide">
+				<li style="list-style: none; margin-left: 50px">
+					<h2>This is a <strong>simple</strong> item list.<br /></h2>
+				</li>
+				<li>
+					Input an item and press the <strong>"Enter"</strong> key or click the
+					<strong></strong>"Add Item" button to add it to the list.<br />
+				</li>
+				<li>
+					To <strong>remove an item</strong>, click the
+					<strong>"X"</strong> button next to it.<br />
+				</li>
+				<li>
+					To <strong>filter the list</strong>, type a search term in the
+					<strong>filter Items</strong> field.<br />
+				</li>
+				<li>
+					To <strong>clear all items</strong>, click the
+					<strong>"Clear All Items" </strong>button.<br />
+				</li>
+				<li>
+					To <strong>change brightness</strong>, click the
+					<strong>"moon"</strong> icon.<br />
+				</li>
+				<li>
+					To <strong>edit an item</strong> in the list (eg to correct a typo),
+					click on the item.<br />
+				</li>
+				<li>
+					Click on the <strong>"?"</strong> icon to
+					<strong>hide/see</strong> this guide.<br />
+				</li>
+			</ul>
 
-      <header>
-        <img class="inbody-logo"src="images/Listing.png" alt="logo" />
-        <h1>Item List</h1>
+			<form id="item-form">
+				<!-- <div class="form-control"> -->
+				<input
+					type="text"
+					class="form-input"
+					id="item-input"
+					name="item"
+					placeholder="Enter Item"
+				/>
+				<!-- </div> -->
 
-       <!--Just to add title to icon-->
-        <span title="how it works">
-          <i class="fa-solid fa-circle-question help"></i>
-        </span>
+				<div class="button-container">
+					<!-- <div class="form-control"> -->
+					<button type="submit" class="btn">
+						<i class="fa-solid fa-plus"></i> Add Item
+					</button>
+					<!-- </div> -->
 
-      </header>
+					<!-- <div class="form-control"> -->
+					<button type="submit" class="cancelBtn">
+						<i class="fas fa-ban fa-lg"></i> cancel
+					</button>
+					<!-- </div> -->
+				</div>
+			</form>
 
-        <ul class="guide">
-          <li style="list-style: none; margin-left: 50px;" > <h2>This is a <strong>simple</strong> item list.<br></h2></li>
-          <li> Input an item and press the <strong>"Enter"</strong> key or click the <strong></strong>"Add Item" button to add it to the list.<br></li>
-          <li>To <strong>remove an item</strong>, click the <strong>"X"</strong> button next to it.<br></li>
-          <li>To <strong>filter the list</strong>, type a search term in the <strong>filter Items</strong> field.<br></li>
-          <li>To <strong>clear all items</strong>, click the <strong>"Clear All Items" </strong>button.<br></li>
-          <li>To <strong>change brightness</strong>, click the <strong>"moon"</strong> icon.<br></li>
-          <li> To <strong>edit an item</strong> in the  list (eg to correct a typo), click on the item.<br></li>
-          <li> Click on the <strong>"?"</strong> icon to <strong>hide/see</strong> this guide.<br></li>
-        </ul>
-      
-        
-      <form id="item-form">
-        <!-- <div class="form-control"> -->
-          <input  type="text" class="form-input" id="item-input" name="item" placeholder="Enter Item"/>
-        <!-- </div> -->
+			<div class="filter">
+				<input
+					style="color: rgba(4, 108, 149, 0.907)"
+					type="text"
+					class="form-input-filter"
+					id="filter"
+					placeholder="Filter Items"
+				/>
+			</div>
 
-        <div class="button-container">
-          <!-- <div class="form-control"> -->
-            <button type="submit" class="btn">
-              <i class="fa-solid fa-plus"></i> Add Item
-            </button>
-          <!-- </div> -->
-
-          <!-- <div class="form-control"> -->
-            <button type="submit" class="cancelBtn">
-              <i class="fas fa-ban fa-lg"></i> cancel 
-            </button>
-          <!-- </div> -->
-        </div>
-        
-      </form>
-
-      <div class="filter">
-        <input
-          type="text"
-          class="form-input-filter"
-          id="filter"
-          placeholder="Filter Items"
-        />
-      </div>
-
-      <ul id="item-list" class="items">
-        <!-- <li>
+			<ul id="item-list" class="items">
+				<!-- <li>
           Apples
           <button class="remove-item btn-link text-red">
             <i class="fa-solid fa-xmark"></i>
           </button>
         </li>
-      -->
-        
-      </ul>
+      --></ul>
 
-      <button id="clear" class="btn-clear">Clear All Items</button>
-      
-    </div>
-    
-        <!--brightness mode icone-->
-    <p class="toggle-container" style="color: rgb(7, 90, 216);;">change brightness here</p>
-    <i class="fas fa-moon toggle-container" id="mode-toggle"></i>
+			<button id="clear" class="btn-clear">Clear All Items</button>
+		</div>
 
-    <script src="script.js"></script>
-  </body>
+		<!--brightness mode icone-->
+		<p class="toggle-container" style="color: rgb(7, 90, 216)">
+			change brightness here
+		</p>
+		<i class="fas fa-moon toggle-container" id="mode-toggle"></i>
+
+		<script src="script.js"></script>
+	</body>
 </html>
-
