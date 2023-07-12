@@ -202,6 +202,10 @@ img {
 	margin-bottom: 10px;
 }
 
+strong {
+	color: rgba(9, 164, 211, 0.947);
+}
+
 .guide li {
 	margin: 10px;
 }
