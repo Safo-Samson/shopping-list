@@ -96,7 +96,7 @@ The .btn and .cancelBtn classes both have flex: 1 applied, which ensures that th
 	padding: 10px 20px;
 	cursor: pointer;
 	margin: 5px;
-	display: hidden;
+	display: none;
 }
 .btn:hover {
 	background-color: #444;
